@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardmaker | Stevetec</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="patterns.css">
+    <link rel="stylesheet" href="radios.css">
+    <script src="html2canvas.js"></script>
+    <script src="marked.js"></script>
+</head>
+<body>
+    <div id="app">
+        <aside class="sidebar" id="configurator">
+            <h1>Configure your card</h1>
+            <form action="" method="get">
+                <h3>Content</h3>
+                <input type="text" name="from" id="configFrom" placeholder="From:" class="configInput">
+                <input type="text" name="to" id="configTo" placeholder="To:" class="configInput">
+                <textarea name="content" id="configContent" cols="30" rows="10" placeholder="Say something nice..." class="configInput"></textarea>
+                <h3>Color</h3>
+                <div class="custom-radios" id="colorRadios">
+                </div>
+                <h3>Mode</h3>
+                <div class="custom-radios" id="modeRadios">
+                </div>
+                <h3>Pattern</h3>
+                <div class="custom-radios" id="patternRadios">
+                </div>
+                <h3>Pattern Opacity</h3>
+                <input class="configInput" type="range" name="patternOpacity" id="patternOpacity" min="0" max="1" step="0.01" value="0.3">
+            </form>
+            <div class="download">
+                <button id="downloadButton">Download</button>
+            </div>
+        </aside>
+        <main class="card" id="card">
+            <header class="cardHeader">
+                <div class="cardContent">
+                    <h1 class="cardHeaderText">To: <span class="cardTo cardHeaderHighlight" id="cardTo">Me</span></h1>
+                    <h2 class="cardHeaderText">From: <spam class="cardFrom cardHeaderHighlight" id="cardFrom">You</spam></h2>
+                    <div class="cardHeaderText" id="cardContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quo dolorum accusamus saepe necessitatibus sint repellat inventore, doloremque odio unde?</div>
+                </div>
+                <div class="cardHeaderBg"></div>
+            </header>
+            <section class="patternHost circuit" id="patternHost"></section>
+            <footer class="wavesContainer" id="wavesContainer">
+                <svg id="waves" class="" viewBox="0 350 900 250" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                    <path id="w0" class="wavePaths"
+                        d="M0 371L16.7 373C33.3 375 66.7 379 100 380.3C133.3 381.7 166.7 380.3 200 393.7C233.3 407 266.7 435 300 434.5C333.3 434 366.7 405 400 389.8C433.3 374.7 466.7 373.3 500 386.3C533.3 399.3 566.7 426.7 600 433.7C633.3 440.7 666.7 427.3 700 424.8C733.3 422.3 766.7 430.7 800 424C833.3 417.3 866.7 395.7 883.3 384.8L900 374L900 601L883.3 601C866.7 601 833.3 601 800 601C766.7 601 733.3 601 700 601C666.7 601 633.3 601 600 601C566.7 601 533.3 601 500 601C466.7 601 433.3 601 400 601C366.7 601 333.3 601 300 601C266.7 601 233.3 601 200 601C166.7 601 133.3 601 100 601C66.7 601 33.3 601 16.7 601L0 601Z"
+                        fill="#fff"></path>
+                    <path id="w1" class="wavePaths"
+                        d="M0 461L16.7 458.7C33.3 456.3 66.7 451.7 100 443.7C133.3 435.7 166.7 424.3 200 420.7C233.3 417 266.7 421 300 424.8C333.3 428.7 366.7 432.3 400 442.8C433.3 453.3 466.7 470.7 500 473.8C533.3 477 566.7 466 600 451.5C633.3 437 666.7 419 700 411.7C733.3 404.3 766.7 407.7 800 407.3C833.3 407 866.7 403 883.3 401L900 399L900 601L883.3 601C866.7 601 833.3 601 800 601C766.7 601 733.3 601 700 601C666.7 601 633.3 601 600 601C566.7 601 533.3 601 500 601C466.7 601 433.3 601 400 601C366.7 601 333.3 601 300 601C266.7 601 233.3 601 200 601C166.7 601 133.3 601 100 601C66.7 601 33.3 601 16.7 601L0 601Z"
+                        fill="#e1e1e1"></path>
+                    <path id="w2" class="wavePaths"
+                        d="M0 466L16.7 465.3C33.3 464.7 66.7 463.3 100 472.2C133.3 481 166.7 500 200 496.2C233.3 492.3 266.7 465.7 300 464.2C333.3 462.7 366.7 486.3 400 498C433.3 509.7 466.7 509.3 500 499.5C533.3 489.7 566.7 470.3 600 469.5C633.3 468.7 666.7 486.3 700 486.2C733.3 486 766.7 468 800 467.5C833.3 467 866.7 484 883.3 492.5L900 501L900 601L883.3 601C866.7 601 833.3 601 800 601C766.7 601 733.3 601 700 601C666.7 601 633.3 601 600 601C566.7 601 533.3 601 500 601C466.7 601 433.3 601 400 601C366.7 601 333.3 601 300 601C266.7 601 233.3 601 200 601C166.7 601 133.3 601 100 601C66.7 601 33.3 601 16.7 601L0 601Z"
+                        fill="#525252"></path>
+                    <path id="w3" class="wavePaths"
+                        d="M0 495L16.7 493C33.3 491 66.7 487 100 486.2C133.3 485.3 166.7 487.7 200 488.3C233.3 489 266.7 488 300 488C333.3 488 366.7 489 400 491C433.3 493 466.7 496 500 504C533.3 512 566.7 525 600 523.7C633.3 522.3 666.7 506.7 700 502C733.3 497.3 766.7 503.7 800 509.5C833.3 515.3 866.7 520.7 883.3 523.3L900 526L900 601L883.3 601C866.7 601 833.3 601 800 601C766.7 601 733.3 601 700 601C666.7 601 633.3 601 600 601C566.7 601 533.3 601 500 601C466.7 601 433.3 601 400 601C366.7 601 333.3 601 300 601C266.7 601 233.3 601 200 601C166.7 601 133.3 601 100 601C66.7 601 33.3 601 16.7 601L0 601Z"
+                        fill="#121212"></path>
+                    <path id="w4" class="wavePaths"
+                        d="M0 536L16.7 540.5C33.3 545 66.7 554 100 552.3C133.3 550.7 166.7 538.3 200 534.8C233.3 531.3 266.7 536.7 300 544C333.3 551.3 366.7 560.7 400 560C433.3 559.3 466.7 548.7 500 544C533.3 539.3 566.7 540.7 600 546.5C633.3 552.3 666.7 562.7 700 563.8C733.3 565 766.7 557 800 555.7C833.3 554.3 866.7 559.7 883.3 562.3L900 565L900 601L883.3 601C866.7 601 833.3 601 800 601C766.7 601 733.3 601 700 601C666.7 601 633.3 601 600 601C566.7 601 533.3 601 500 601C466.7 601 433.3 601 400 601C366.7 601 333.3 601 300 601C266.7 601 233.3 601 200 601C166.7 601 133.3 601 100 601C66.7 601 33.3 601 16.7 601L0 601Z"
+                        fill="#000"></path>
+                </svg>
+            </footer>
+        </main>
+    </div>
+    <template id="radioTemplate">
+        <div>
+            <div>
+                <input type="radio" name="color" id="">
+                <label for="">
+                  <span class="colorspan">
+                    <img src="assets/check.svg" alt="Checked Icon" />
+                  </span>
+                </label>
+              </div>
+        </div>
+    </template>
+<script src="const.js"></script>
+<script src="app.js" defer></script>
+</body>
+</html>

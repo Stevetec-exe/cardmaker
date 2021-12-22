@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;700;800&display=swap');
+
+:root{
+    --textColor: #1f2436;
+    --cardBg: #E7E5E4;
+    --patternOpacity:0.3
+}
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+font-family: 'Maven Pro', sans-serif;
+    word-break: break-word;
+}
+
+
+
+
+body {
+    margin: 0;
+    color: var(--textColor);
+}
+
+
+.card{
+    background-color: var(--cardBg);
+    padding: 10px 30px;
+    width: 90vw;
+    max-width: 960px;
+    position: relative;
+    max-height: 100vh;
+    border-radius: 5px;
+    overflow: hidden;
+
+    height: calc( 192px * 4);
+    width: calc( 108px * 4);
+}
+
+#app{
+    gap:10px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    height: 90vh;
+}
+
+.cardHeaderHighlight{
+    color:var(--highlight)
+}
+
+.wavesContainer{
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    right: 0;
+}
+
+#cardContent{
+    padding: 5px 10px;
+    border-left: 4px solid var(--textColor);
+    position: relative;
+}
+
+#cardContent:after{
+    background: var(--textColor);
+    position: absolute;
+    inset: 0;
+    content: "";
+    opacity: 0.05;
+}
+
+.patternHost{
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    opacity: var(--patternOpacity);
+}
+
+.cardHeader{
+    position: relative;
+    padding: 10px 5px;
+    z-index: 100;
+}
+
+.cardHeaderBg{
+    background: var(--cardBg);
+    position: absolute;
+    opacity: 0.5;
+    inset: 0;
+    z-index: 0;
+    border-radius: 5px;
+}
+
+.cardContent{
+    z-index: 100;
+    position: relative;
+}
+
+.wavesDark path{
+    filter: brightness(70%);
+}
+
+#configurator{
+    color:#1f2436;
+    background: #E7E5E4;
+    height: 100%;
+    flex: 1;
+    padding: 20px;
+}
+
+*{
+    transition: color, fill;
+    transition-duration: 0.2s;
+}
+
+.configInput{
+    display: block;
+    padding: 5px 10px;
+    width: 100%;
+    resize: vertical;
+    border:none;
+    margin-bottom: 10px;
+    font-size: medium;
+}
+
+@media (prefers-color-scheme: dark) {
+    body{
+        background: #18181B;
+    }
+    #configurator{
+        background:#1f2436;
+        color: #E7E5E4;
+    }
+}
+
+#downloadButton{
+    display: block;
+    padding: 10px 20px;
+    width: 100%;
+    margin-top: 30px;
+    background: #A3E635;
+    border: none;
+    font-weight: bolder;
+}
+
+#downloadButton:hover{
+    cursor: pointer;
+}
+
+#cardContent *{
+    margin: 0;
+    margin-bottom: 0.4em;
+    padding: 0;
+}
+
+#cardContent img{
+    max-width: 100%;
+}
